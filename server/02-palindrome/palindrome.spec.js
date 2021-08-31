@@ -1,5 +1,8 @@
 // テスト対象のコード
-let isPalindrome = (phrase) => phrase === phrase.split('').reverse().join('');
+let isPalindrome = phrase => {
+  if (phrase.trim() === '') return false;
+  return phrase === phrase.split('').reverse().join('');
+}
 
 
 describe('the palindrome canary spec', () => {
@@ -17,7 +20,9 @@ describe('the palindrome canary spec', () => {
   it('false for dad mom', () => {
     expect(isPalindrome("dad mom")).toBe(false);
   });
-  it.todo('true for whitespace');
+  it('false for whitespace', () => {
+    expect(isPalindrome(" ")).toBe(false);
+  });
   it.todo('error for empty string');
   it.todo('error for not a string');
 });
