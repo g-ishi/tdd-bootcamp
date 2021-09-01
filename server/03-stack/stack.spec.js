@@ -1,7 +1,8 @@
 // テスト用の関数定義
 let stack = {
-  isEmpty: () => true
-}
+  isEmpty: () => true,
+  size: () => 0,
+};
 
 
 describe('the stack canary spec', () => {
@@ -14,7 +15,9 @@ describe('a stack', () => {
   it('starts empty', () => {
     expect(stack.isEmpty()).toBe(true);
   });
-  it.todo('starts with stack size of 0');
+  it('starts with stack size of 0', () => {
+    expect(stack.size()).toBe(0);
+  });
   it.todo('is not empty when pushed');
   it.todo('stack size is 1 when pushed');
   it.todo('stack is empty when pushed and popped');
