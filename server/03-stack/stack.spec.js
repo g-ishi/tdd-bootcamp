@@ -1,15 +1,15 @@
 // テスト用の関数定義
 const stackFactory = () => {
-  let empty = true;
-  let size = 0;
+  let count = 0;
   return {
-    isEmpty: () => empty,
-    size: () => size,
+    isEmpty: () => count === 0,
+    size: () => count,
     push: () => {
-      empty = false;
-      size++;
+      count++;
     },
-    pop: () => empty = true,
+    pop: () => {
+      count--;
+    } 
   };
 };
 
@@ -45,7 +45,11 @@ describe('a stack', () => {
     stack.pop();
     expect(stack.isEmpty()).toBe(true);
   });
-  it.todo('stack size is 0 when pushed and popped');
+  it('stack size is 0 when pushed and popped', () => {
+    stack.push("item");
+    stack.pop();
+    expect(stack.size()).toBe(0);
+  });
   it.todo('throws overflow error when pushing to a stack at full capacity');
   it.todo('throw underflow error when popping an empty stack');
   it.todo('pops the same one item when pushed');
